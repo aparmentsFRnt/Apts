@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartments Available</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Green and white animated gradient background */
+            background: linear-gradient(-45deg, #eeffee, #90ee90, #ffffff, #98fb98);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-bottom: 2px solid #90ee90;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #2d5016;
+        }
+
+        main {
+            flex-grow: 1; /* Allows main content to fill space */
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .apartment-listing {
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .apartment-listing:hover {
+            transform: translateY(-5px);
+        }
+
+        .apartment-listing img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1em;
+            color: #333;
+            height: 40px; /* Gives consistent height for alignment */
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2d5016;
+            margin: 10px 0 0 0;
+        }
+
+        footer {
+            background-color: grey;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Apartments Available</h1>
+    </header>
+
+    <main>
+        <div class="apartment-listing">
+            <img src="your-image-here.jpg" alt="Apartment 1">
+            <p class="description">put your description here</p>
+            <p class="price">$</p>
+        </div>
+
+        <div class="apartment-listing">
+            <img src="your-image-here.jpg" alt="Apartment 2">
+            <p class="description">put your description here</p>
+            <p class="price">$</p>
+        </div>
+
+        <div class="apartment-listing">
+            <img src="your-image-here.jpg" alt="Apartment 3">
+            <p class="description">put your description here</p>
+            <p class="price">$</p>
+        </div>
+
+        <div class="apartment-listing">
+            <img src="your-image-here.jpg" alt="Apartment 4">
+            <p class="description">put your description here</p>
+            <p class="price">$</p>
+        </div>
+
+        <div class="apartment-listing">
+            <img src="your-image-here.jpg" alt="Apartment 5">
+            <p class="description">put your description here</p>
+            <p class="price">$</p>
+        </div>
+
+        <div class="apartment-listing">
+            <img src="your-image-here.jpg" alt="Apartment 6">
+            <p class="description">put your description here</p>
+            <p class="price">$</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>put your footer here</p>
+    </footer>
+
+</body>
+</html>
