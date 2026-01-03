@@ -9,7 +9,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Green and white animated gradient background */
             background: linear-gradient(-45deg, #eeffee, #90ee90, #ffffff, #98fb98);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
@@ -19,15 +18,9 @@
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         header {
@@ -43,7 +36,7 @@
         }
 
         main {
-            flex-grow: 1; /* Allows main content to fill space */
+            flex-grow: 1;
             padding: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -58,6 +51,7 @@
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.2s;
+            cursor: pointer; /* Indicates it's clickable */
         }
 
         .apartment-listing:hover {
@@ -75,7 +69,7 @@
         .description {
             font-size: 1em;
             color: #333;
-            height: 40px; /* Gives consistent height for alignment */
+            height: 40px;
             margin: 10px 0;
         }
 
@@ -94,6 +88,87 @@
             font-size: 0.8em;
             margin-top: 20px;
         }
+
+        /* --- Styles for the Payment Window --- */
+        .payment-window {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.75);
+            overflow-y: auto; /* Allow scrolling if content is tall */
+        }
+
+        .payment-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .payment-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-gallery img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .payment-method {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .payment-method img {
+            max-width: 80px;
+            display: block;
+            margin: 0 auto 5px auto;
+        }
+        .payment-method p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
     </style>
 </head>
 <body>
@@ -103,46 +178,71 @@
     </header>
 
     <main>
-        <div class="apartment-listing">
+        <div class="apartment-listing" onclick="openPaymentWindow()">
             <img src="your-image-here.jpg" alt="Apartment 1">
             <p class="description">put your description here</p>
-            <p class="price">$</p>
+            <p class="price">\$</p>
         </div>
 
-        <div class="apartment-listing">
+        <div class="apartment-listing" onclick="openPaymentWindow()">
             <img src="your-image-here.jpg" alt="Apartment 2">
             <p class="description">put your description here</p>
-            <p class="price">$</p>
+            <p class="price">\$</p>
         </div>
 
-        <div class="apartment-listing">
+        <div class="apartment-listing" onclick="openPaymentWindow()">
             <img src="your-image-here.jpg" alt="Apartment 3">
             <p class="description">put your description here</p>
-            <p class="price">$</p>
+            <p class="price">\$</p>
         </div>
 
-        <div class="apartment-listing">
+        <div class="apartment-listing" onclick="openPaymentWindow()">
             <img src="your-image-here.jpg" alt="Apartment 4">
             <p class="description">put your description here</p>
-            <p class="price">$</p>
+            <p class="price">\$</p>
         </div>
 
-        <div class="apartment-listing">
+        <div class="apartment-listing" onclick="openPaymentWindow()">
             <img src="your-image-here.jpg" alt="Apartment 5">
             <p class="description">put your description here</p>
-            <p class="price">$</p>
+            <p class="price">\$</p>
         </div>
 
-        <div class="apartment-listing">
+        <div class="apartment-listing" onclick="openPaymentWindow()">
             <img src="your-image-here.jpg" alt="Apartment 6">
             <p class="description">put your description here</p>
-            <p class="price">$</p>
+            <p class="price">\$</p>
         </div>
     </main>
 
-    <footer>
-        <p>put your footer here</p>
-    </footer>
+    <!-- The Payment Window (Hidden by default) -->
+    <div id="paymentModal" class="payment-window">
+        <div class="payment-content">
+            <span class="close-button" onclick="closePaymentWindow()">&times;</span>
+            <h2>Payment Details</h2>
+            
+            <!-- Image Gallery for the specific apartment -->
+            <div class="payment-gallery">
+                <img src="your-image-here.jpg" alt="Detail 1">
+                <img src="your-image-here.jpg" alt="Detail 2">
+                <img src="your-image-here.jpg" alt="Detail 3">
+                <img src="your-image-here.jpg" alt="Detail 4">
+                <img src="your-image-here.jpg" alt="Detail 5">
+                <img src="your-image-here.jpg" alt="Detail 6">
+            </div>
+            
+            <p class="description">put your description here</p>
+            <p class="price">\$</p>
 
-</body>
-</html>
+            <!-- Payment Methods Section -->
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/2048px-Google_Pay_Logo.svg.png" alt="Google Pay">
+                    <p>Google Pay</p>
+                </div>
+                <div class="payment-method">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Apple_Pay_logo.svg/2048px-Apple_Pay_logo.svg.png" alt="Apple Pay">
+                    <p>Apple Pay</p>
+                </div>
+                <div class="payment-method">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d
