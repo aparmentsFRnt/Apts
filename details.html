@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 20px; }
+        .gallery img { max-width: 100%; height: 150px; object-fit: cover; border-radius: 5px; border: 1px solid #ddd; }
+        .description { font-size: 1.1em; color: #555; margin-bottom: 10px; }
+        .price { font-size: 2em; font-weight: bold; color: #2d5016; margin-bottom: 20px; }
+        .questions { margin-bottom: 20px; }
+        .questions input[type="text"] { width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .payment-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; margin-top: 20px; }
+        .payment-method { border: 1px solid #ccc; padding: 10px; border-radius: 8px; background-color: #f9f9f9; cursor: pointer; text-decoration: none; color: inherit; }
+        .payment-method img { max-width: 80px; display: block; margin: 0 auto 5px auto; }
+        .payment-method p { margin: 0; font-size: 0.9em; }
+        .payment-method:hover { background-color: #e9e9e9; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Apartment Details</h1>
+        
+        <div class="gallery">
+            <img src="your-image-here.jpg" alt="Detail 1">
+            <img src="your-image-here.jpg" alt="Detail 2">
+            <img src="your-image-here.jpg" alt="Detail 3">
+            <img src="your-image-here.jpg" alt="Detail 4">
+            <img src="your-image-here.jpg" alt="Detail 5">
+            <img src="your-image-here.jpg" alt="Detail 6">
+        </div>
+        
+        <p class="description">put your description here</p>
+        <p class="price">\$</p>
+
+        <div class="questions">
+            <h2>Applicant Information</h2>
+            <input type="text" placeholder="put your question here">
+            <input type="text" placeholder="put your question here">
+            <input type="text" placeholder="put your question here">
+            <input type="text" placeholder="put your question here">
+            <input type="text" placeholder="put your question here">
+            <input type="text" placeholder="put your question here">
+        </div>
+
+        <h2>Select Payment Method</h2>
+        <div class="payment-method
